@@ -447,6 +447,7 @@ interface KnockoutStatic {
     renderTemplate(template: Function, viewModel: any, options?: any, target?: any, renderMode?: any): any;
     renderTemplate(template: string, viewModel: any, options?: any, target?: any, renderMode?: any): any;
 	unwrap<T>(value: KnockoutObservable<T> | T): T;
+	onError(error: Error): any;
 
 	computedContext: KnockoutComputedContext;
 
