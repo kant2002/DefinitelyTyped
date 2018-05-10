@@ -574,12 +574,17 @@ function TestWebDriverWindow() {
     let locationPromise: webdriver.promise.Promise<webdriver.ILocation>;
     let sizePromise: webdriver.promise.Promise<webdriver.ISize>;
     let voidPromise: webdriver.promise.Promise<void>;
+    let rectPromise: webdriver.promise.Promise<webdriver.IRect>;
 
     locationPromise = window.getPosition();
     sizePromise = window.getSize();
     voidPromise = window.maximize();
     voidPromise = window.setPosition(12, 34);
     voidPromise = window.setSize(12, 34);
+    rectPromise = window.setRect({width: 12, height: 34});
+    rectPromise = window.setRect({width: 12, height: 34, x: 0, y: 0});
+    rectPromise = window.setRect({x: 100, y: 50});
+    rectPromise = window.getRect();
 }
 
 function TestWebDriver() {

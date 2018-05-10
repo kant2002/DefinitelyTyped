@@ -1585,6 +1585,9 @@ interface IButton {
   RIGHT: string;
 }
 
+interface IRect extends Partial<ISize>, Partial<ILocation> {
+}
+
 /**
  * Representations of pressable keys that aren't text.  These are stored in
  * the Unicode PUA (Private Use Area) code points, 0xE000-0xF8FF.  Refer to
@@ -3499,6 +3502,20 @@ export class Window {
    *     command has completed.
    */
   setSize(width: number, height: number): promise.Promise<void>;
+
+  /**
+   * Retrieves the a rect describing the current top-level window's size and position.
+   * @return {!promise.Promise} A promise that will resolve to the window rect of the current window.
+   */
+  getRect(): promise.Promise<IRect>;
+
+  /**
+   * Sets the current top-level window's size and position.
+   * You may update just the size by omitting width & height, or just the position by omitting x & y options.
+   * @param {IRect} options The desired window size and position..
+   * @return {!promise.Promise} A promise that will resolve to the current widnow's updated window rect.
+   */
+  setRect(options: IRect): promise.Promise<IRect>;
 
   /**
    * Maximizes the current window.
